@@ -7,13 +7,15 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    Switch aSwitch;
     private ArrayList<Integer> zdjecia;
     private int indeks;
     public Button dalejButton;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         wsteczButton = findViewById(R.id.button1);
         imageView = findViewById(R.id.imageView);
         editTekst = findViewById(R.id.editNumber);
+        aSwitch = findViewById(R.id.switch1);
         editTekst.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -75,6 +78,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+
+                }
+            }
+        });
     }
     private void wyswietlZdjecie(int i){
         imageView.setImageResource(zdjecia.get(i));
